@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    padding-bottom: 160px;
+    background-color: #fbfbfb;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/*这个是输入、渲染区域的母元素*/
+.textArea {
+    height: 70vh;
+    padding-left: 15px;
+    padding-right: 15px;
+    overflow: hidden;
+}
+
+.Option {
+    display: inline;
+}
+
+.Options {
+    margin-bottom: 30px;
+}
+
+.headers {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    height: 100%;
+    width: 50%;
+    margin: 0;
+    padding: 2px;
+    float: left;
+}
+
+section {
+    height: 100%;
+    width: 50%;
+    float: right;
+}
+
+.result-html {
+    display: block;
+    height: 100%;
+}
