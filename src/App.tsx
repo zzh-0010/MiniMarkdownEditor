@@ -1,7 +1,24 @@
 import { useState } from "react"
 import markdownCore from "../../markdownparser/src/Core"
 
-const Textarea = () => { //文本输入区域组件
+type handleTextChange = (x: React.ChangeEvent<HTMLTextAreaElement>) => void
+
+//输入区域
+const TextInput = ({textContent, handleTextChange} : {textContent: string, handleTextChange: handleTextChange}) => {
+  return(
+    <div className="textInput full-height">
+      <textarea 
+      value={textContent}
+      onChange={handleTextChange}
+      className="textarea full-height"
+      >
+      </textarea>
+    </div>
+  )
+}
+
+//文本处理区域组件
+const Textarea = () => {
   
   const [textContent, setTextContent] = useState('');
 
@@ -17,12 +34,12 @@ const Textarea = () => { //文本输入区域组件
   const html = mdCore.html;
 
   return (
-    <div className="textArea">
-      <textarea 
-      value={textContent}
-      onChange={handleTextChange}>
-      </textarea>
-      <Showtable html={html}/>
+    <div className="textRoot full-height">
+      <Options />
+      <div className="textArea full-height">
+        <TextInput textContent={textContent} handleTextChange={handleTextChange}/>
+        <Showtable html={html}/>
+      </div>
     </div>
   )
 }
@@ -31,45 +48,46 @@ const Textarea = () => { //文本输入区域组件
 const Showtable = ({html} : {html: string}) => {
   return (
     <section>
-      <div className="result-html" dangerouslySetInnerHTML={ { __html: html} }/>
+      <div className="result-html full-height" dangerouslySetInnerHTML={ { __html: html} }/>
     </section>
   )
 }
 
 //选项栏
 const Options = () => { 
-  const Opt = ['html', 'xhtmlOut', 'breaks'];
   return (
-    <div className="Options">
-      {
-        Opt.map((opt, index) => (
-          <Option opt={opt} key={index}/>
-        ))
-      }
+    <div className="toolbars headers">
+      <button className="tool">
+        <i className="bi bi-type-bold" unselectable="on" style={{fontSize: "1.5rem"}}></i>
+      </button>
+
+      <button className="tool">
+        <i className="bi bi-type-italic" unselectable="on" style={{fontSize: "1.5rem"}}></i>
+      </button>
+      
+      <button className="tool">
+        <i className="bi bi-type-strikethrough" unselectable="on" style={{fontSize: "1.5rem"}}></i>
+      </button>
+      
+      <button className="tool">
+        <i className="bi bi-type-underline" unselectable="on" style={{fontSize: "1.5rem"}}></i>
+      </button>
     </div>
   )
 }
 
-const Option = ( {opt} : {opt: string} ) => { //选项栏中的单个选项
-  return (
-    <div className="Option">
-      <input type="checkbox" id={opt} name="opt"/>{` ${opt} `}
-    </div>
-  )
-}
-
+//标题区域
 const Headers = () => {
   return (
     <div className="headers">
-      <h1>Hello, Minimarkdown</h1>
-      <Options />
+      <h1 className="header">Hello, Minimarkdown</h1>
     </div>
   )
 }
 
 const App = () => {
   return (
-    <div>
+    <div className="full-height">
       <Headers />
       <Textarea />
     </div>
