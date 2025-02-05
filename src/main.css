@@ -4,29 +4,20 @@
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     overflow-x: hidden;
     padding-bottom: 160px;
     background-color: #fbfbfb;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    padding-left: 30px;
-    padding-right: 30px;
+    height: 100%;
 }
 
-/*这个是输入、渲染区域的母元素*/
-.textArea {
-    height: 70vh;
-    padding-left: 15px;
-    padding-right: 15px;
-    overflow: hidden;
-}
-
-.Option {
-    display: inline;
-}
-
-.Options {
-    margin-bottom: 30px;
+.full-height {
+    height: 100%;
 }
 
 .headers {
@@ -34,26 +25,69 @@ body {
     padding-right: 15px;
 }
 
-h1 {
+.header {
     margin-top: 20px;
     margin-bottom: 10px;
 }
 
-textarea {
-    height: 100%;
+.textRoot {
+    border: 1px solid #ccc;
+}
+
+/*这个是输入、渲染区域的母元素*/
+.textArea {
+    padding-left: -15px;
+    padding-right: -15px;
+    overflow: hidden;
+    margin: 15px;
+    border: 1px solid #ccc;
+}
+
+/*文本输入区块*/
+.textInput {
     width: 50%;
-    margin: 0;
-    padding: 2px;
+    padding-left: 15px;
+    padding-right: 15px;
     float: left;
+    overflow: auto;
+}
+
+/*文本输入区*/
+.textarea {
+    padding: 2px;
+    width: 100%;
 }
 
 section {
     height: 100%;
     width: 50%;
+    padding-left: 15px;
+    padding-right: 15px;
     float: right;
 }
 
 .result-html {
     display: block;
-    height: 100%;
+    padding: 2px 10px;
+    overflow: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+/*工具栏区*/
+.toolbars {
+    margin-bottom: 20px;
+}
+
+.tool {
+    border: none;
+    background-color: #fbfbfb;
+    display: inline-block;
+}
+
+.tool:hover {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background-color: #fff;
 }
