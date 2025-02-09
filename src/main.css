@@ -30,20 +30,21 @@ body {
     margin-bottom: 10px;
 }
 
+/* 正文内容区 */
 .textRoot {
     border: 1px solid #ccc;
 }
 
-/*这个是输入、渲染区域的母元素*/
+/*文本区*/
 .textArea {
-    padding-left: -15px;
-    padding-right: -15px;
+    /* padding-left: -15px;
+    padding-right: -15px; */
     overflow: hidden;
     margin: 15px;
     border: 1px solid #ccc;
 }
 
-/*文本输入区块*/
+/*文本输入区*/
 .textInput {
     width: 50%;
     padding-left: 15px;
@@ -52,12 +53,14 @@ body {
     overflow: auto;
 }
 
-/*文本输入区*/
+/*文本输入框*/
 .textarea {
     padding: 2px;
     width: 100%;
+    resize: none;
 }
 
+/* 输出结果区？ */
 section {
     height: 100%;
     width: 50%;
@@ -73,6 +76,7 @@ section {
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #fff;
+    word-break: break-all
 }
 
 /*工具栏区*/
