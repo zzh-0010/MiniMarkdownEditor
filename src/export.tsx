@@ -31,16 +31,28 @@ const ExportModal:React.FC<ExportModalProps>=({isOpen,onRequestClose,content})=>
             saveAs(blob, `${filename}.txt`);
         }else if (format === 'pdf') {
 
-            // 使用html2canvas渲染，缺点：由于html和pdf样式不同，字会挤在一起
+            // // 使用html2canvas渲染，缺点：由于html和pdf样式不同，pdf格式为a4，图像会变形
+            // const container = document.getElementById('html-container');
+            // if (!container) return;
+            // html2canvas(container).then((canvas:HTMLCanvasElement) => {
+            // const pdf = new jsPDF('p', 'mm', 'a4');
+            // const width = pdf.internal.pageSize.getWidth();
+            // const height = pdf.internal.pageSize.getHeight();
+            // pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 10, 10, width - 20, height - 20);
+            // pdf.save(filename);
+            // });
+
+            // 使用html2canvas渲染，缺点：实际上就是把截图的边框给截掉了
             const container = document.getElementById('html-container');
             if (!container) return;
             html2canvas(container).then((canvas:HTMLCanvasElement) => {
-            const pdf = new jsPDF('p', 'mm', 'a4');
-            const width = pdf.internal.pageSize.getWidth();
-            const height = pdf.internal.pageSize.getHeight();
-            pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 10, 10, width - 20, height - 20);
+            const width = container.offsetWidth;
+            const height = container.offsetHeight;
+            const pdf = new jsPDF('auto', 'px', [width,height]);
+            pdf.addImage(canvas.toDataURL('image/png'), 'PNG', -8, -8, width+20, height+20);
             pdf.save(filename);
             });
+
 
             //未渲染的pdf
             // const pdf = new jsPDF();
