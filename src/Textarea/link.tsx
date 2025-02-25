@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ModalProvider } from 'styled-react-modal'
-import { StyledModal } from './styled'
+import { StyledModal } from '../styled/styled'
 
 interface ImportLinkModalProps{
     isOpen:boolean;

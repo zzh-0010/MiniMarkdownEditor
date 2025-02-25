@@ -1,5 +1,5 @@
   
-  export const colorTheme:Theme[]=[
+  export const colorTheme=[
     {
         name:"light",
         color:{
@@ -27,17 +27,3 @@
         }
     }
   ]
-
-interface Theme {
-    name: string;
-    color: {
-      head: string;
-      text: string;
-      border: string;
-      backgroundImage: string;
-      inputBackground: string;
-      resultBackground: string;
-      overlay: string;
-      modalBackground:string;
-    };
-  }
