@@ -175,13 +175,28 @@ hr {
 }
 
 .modal-table {
-  border-collapse: collapse; /* 合并单元格边框 */
-  width: 100%;
+
+    border-collapse: collapse; /* 合并单元格边框 */
+    width: 100%;
+  }
+  
+.modal-table th, .modal-table td {
+    border: 1px solid rgb(0, 0, 0); /* 设置单元格边框 */
+    padding: 3px 15px ;
+    text-align: left;
+  }
+
+blockquote {
+    position: relative; /* 设置定位，以便伪元素可以相对于它定位 */
+    padding-left: 20px; /*增加左内边距 */
 }
 
-.modal-table th,
-.modal-table td {
-  border: 1px solid rgb(0, 0, 0); /* 设置单元格边框 */
-  padding: 3px 15px;
-  text-align: left;
+blockquote::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 5px;
+    background-color: #1985f88c; /* 设置线条颜色 */
 }
