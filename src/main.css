@@ -21,14 +21,17 @@
 
 /*工具栏区*/
 
+
 .toolbars {
   background-color: beige;
   border: solid rgb(178, 178, 104);
   border-radius: 10px;
   display: flex;
-  justify-content: center;
-  margin: 1rem 24%;
+  justify-content: center; 
   align-items: center;
+  width: 60%; 
+  min-width: 800px; 
+  margin: 1rem auto; 
 }
 
 .tool {

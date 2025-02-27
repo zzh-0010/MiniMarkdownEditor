@@ -4,7 +4,6 @@ import { styled } from "styled-components";
 //标题区域
 const StyledHeader = styled.div`
 background-color: ${({ theme }) => theme.color.head}; 
-
 `;
 
 export const Headers = () => {

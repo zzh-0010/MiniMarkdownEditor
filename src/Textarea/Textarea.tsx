@@ -494,7 +494,8 @@ export const Textarea = ({toggleTheme,mode}:{toggleTheme:()=>void,mode:colorSche
           value={textContent} 
           onChange={handleTextChange} 
           onKeyDown={handleKeyDown} 
-          className="textarea"  >
+          className="textarea"  
+          data-testid="my-textarea">
           </Text>
         </div>
         <ShowTable html={html}/>
@@ -513,12 +514,11 @@ export const Textarea = ({toggleTheme,mode}:{toggleTheme:()=>void,mode:colorSche
 }
 
 
-
 //渲染结果展示区
 const ShowTable = ({html} : {html: string}) => {
   return (
-    <section>
-      <Div className="textarea full-height result-html katex-math" id="html-container" dangerouslySetInnerHTML={ { __html: html} }/>
+    <section role="region">
+      <Div className="textarea full-height result-html" id="html-container" dangerouslySetInnerHTML={ { __html: html} } data-testid="result"/>
     </section>
   )
 }
@@ -532,7 +532,7 @@ border-radius: 10px;
 const Options = ({ handleButtonClick,mode }: { handleButtonClick:handleButtonClick,mode:colorSchemeMode}) => {
   return (
     <Toolbars className='toolbars'>
-      <Button icon="bi bi-type-bold" title="粗体" onClick={handleButtonClick} name="bold"/>
+      <Button icon="bi bi-type-bold" title="粗体" onClick={handleButtonClick} name="bold" />
       <Button icon="bi bi-type-italic" title="斜体" onClick={handleButtonClick} name="italic"/>
       <Button icon="bi bi-type-strikethrough" title="删除线" onClick={handleButtonClick} name="strikethrough"/>
       <Button icon="bi bi-quote" title="引用" onClick={handleButtonClick} name="quote"/>
@@ -571,7 +571,7 @@ background-color: ${({ theme }) => theme.color.resultBackground};
 
 const Button =({icon,title,name,onClick}:{icon:string, title:string, name:string, onClick:(x:string)=>void})=>{
   return(
-    <Tool className="tool" onClick={()=>onClick(name)}>
+    <Tool className="tool" onClick={()=>onClick(name)} data-testid={name} >
       <i className={icon}
       unselectable="on" 
       title={title}
