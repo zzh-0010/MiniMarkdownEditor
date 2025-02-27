@@ -1,4 +1,4 @@
-import markdownCore from "../../../markdownparser/src/Core"
+import markdownCore from "markdownparser-zzh"
 import { Div } from '../styled/styled'; 
 import { styled } from "styled-components";
 import { useState, useRef, useEffect, lazy, startTransition, Suspense } from "react";
@@ -518,7 +518,7 @@ export const Textarea = ({toggleTheme,mode}:{toggleTheme:()=>void,mode:colorSche
 const ShowTable = ({html} : {html: string}) => {
   return (
     <section>
-      <Div className="textarea full-height result-html" id="html-container" dangerouslySetInnerHTML={ { __html: html} }/>
+      <Div className="textarea full-height result-html katex-math" id="html-container" dangerouslySetInnerHTML={ { __html: html} }/>
     </section>
   )
 }
