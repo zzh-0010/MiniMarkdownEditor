@@ -21,24 +21,25 @@ const ImportImageModal:React.FC<ImportImageModalProps> =({isOpen,onRequestClose,
             const selectionStart = textarea.selectionStart;
             const selectionEnd = textarea.selectionEnd;
             let textToInsert=`${textarea.value.substring(selectionStart, selectionEnd)}\n`;
-            
-            if(imageAddress){
-                if(imageLink){
-                    textToInsert+="[!["+imageDescription+"]("+imageAddress+")]("+imageLink+")";
-                }
-                else{
-                  textToInsert+="!["+imageDescription+"]("+imageAddress+")";  
-                }
+
+            if(imageAddress&&imageLink){
+                textToInsert+="[!["+imageDescription+"]("+imageAddress+")]("+imageLink+")";
+            }
+            else if(imageAddress&&!imageLink){
+                textToInsert+="!["+imageDescription+"]("+imageAddress+")";  
+            }
+            else if(!imageAddress&&imageLink){
+                textToInsert+="[!["+imageDescription+"]("+imageLink+")]("+imageLink+")";
             }
             else{
-                alert("图片地址不能为空。");
+                alert("图片地址和图片链接不能为都为空。");
             }
-
+            
             textarea.setRangeText(textToInsert, selectionStart, selectionEnd, 'end');
             setTextContent(textarea.value); 
             textarea.focus(); 
           }
-
+            
 
 
         onRequestClose();

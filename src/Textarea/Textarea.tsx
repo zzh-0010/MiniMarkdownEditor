@@ -1,4 +1,4 @@
-import markdownCore from "markdownparser-zzh"
+import markdownCore from "../../../markdownparser/src/Core"
 import { Div } from '../styled/styled'; 
 import { styled } from "styled-components";
 import { useState, useRef, useEffect, lazy, startTransition, Suspense } from "react";

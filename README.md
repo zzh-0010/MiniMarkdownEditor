@@ -1,50 +1,33 @@
-# React + TypeScript + Vite
+# Markdown在线编辑器
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+本项目为字节跳动青训营MiniMarkDownEditor项目。
+我们旨在开发一个支持 Markdown 编写和实时预览的编辑器，帮助用户更直观地完成内容创作，同时为学习和实践前端开发技术提供一个实际案例。
 
-Currently, two official plugins are available:
+## 如何实现
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+在左侧输入框中写入文本后，markdown解析器将会把markdown文本解析成html元素，并在右侧结果框输出。
+不需要后端服务器。
 
-## Expanding the ESLint configuration
+## 使用说明
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+安装依赖库
+```
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+运行
 ```
+npm run dev
+```
+
+单元测试
+```
+npm test
+```
+
+端到端测试
+```
+npm run cypress:open
+```
+
+

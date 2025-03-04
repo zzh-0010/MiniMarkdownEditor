@@ -21,17 +21,16 @@
 
 /*工具栏区*/
 
-
 .toolbars {
   background-color: beige;
   border: solid rgb(178, 178, 104);
   border-radius: 10px;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
-  width: 60%; 
-  min-width: 800px; 
-  margin: 1rem auto; 
+  width: 60%;
+  min-width: 800px;
+  margin: 1rem auto;
 }
 
 .tool {
@@ -113,6 +112,37 @@ section {
   overflow: auto;
 }
 
+.result-html th,
+.result-html td {
+  border: solid;
+  padding: 2px;
+  min-width: 62px;
+}
+
+.result-html img {
+  width: 80%;
+}
+
+.result-html hr {
+  color: currentColor;
+}
+
+
+blockquote {
+  position: relative; /* 设置定位，以便伪元素可以相对于它定位 */
+  padding-left: 20px; /*增加左内边距 */
+}
+
+blockquote::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 5px;
+  background-color: #1985f88c; /* 设置线条颜色 */
+}
+
 /* 模态框 */
 .modal-dialog {
   width: 100%;
@@ -178,28 +208,13 @@ hr {
 }
 
 .modal-table {
-
-    border-collapse: collapse; /* 合并单元格边框 */
-    width: 100%;
-  }
-  
-.modal-table th, .modal-table td {
-    border: 1px solid rgb(0, 0, 0); /* 设置单元格边框 */
-    padding: 3px 15px ;
-    text-align: left;
-  }
-
-blockquote {
-    position: relative; /* 设置定位，以便伪元素可以相对于它定位 */
-    padding-left: 20px; /*增加左内边距 */
+  border-collapse: collapse; /* 合并单元格边框 */
+  width: 100%;
 }
 
-blockquote::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 5px;
-    background-color: #1985f88c; /* 设置线条颜色 */
+.modal-table th,
+.modal-table td {
+  border: 1px solid rgb(0, 0, 0); /* 设置单元格边框 */
+  padding: 3px 15px;
+  text-align: left;
 }
