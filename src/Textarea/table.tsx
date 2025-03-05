@@ -36,26 +36,26 @@ const TableModal:React.FC<TableModalProps>=({isOpen,onRequestClose,textareaRef,s
             let textToInsert=`${textarea.value.substring(selectionStart, selectionEnd)}\n`;
             
             for(let i=0;i<columns;i++){
-                textToInsert+="|   ";
+                textToInsert+="|     ";
             }
             textToInsert+="|\n";
             if(alignment==="left"){
                 for(let i=0;i<columns;i++){
-                    textToInsert+="|:--";
+                    textToInsert+="|:----";
                 }
             }else if(alignment==="center"){
                 for(let i=0;i<columns;i++){
-                    textToInsert+="|:-:";
+                    textToInsert+="|:---:";
                 }
             }else if(alignment==="right"){
                 for(let i=0;i<columns;i++){
-                    textToInsert+="|--:";
+                    textToInsert+="|----:";
                 }
             }
             textToInsert+="|\n";
-            for(let i=0;i<rows-2;i++){
+            for(let i=0;i<rows-1;i++){
                 for(let j=0;j<columns;j++){
-                    textToInsert+="|   ";
+                    textToInsert+="|     ";
                 }
                 textToInsert+="|\n";
             }
